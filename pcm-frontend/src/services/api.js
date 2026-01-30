@@ -1,11 +1,12 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://localhost:5262/api',  // Thay 5262 bằng port backend của bạn (kiểm tra trong Visual Studio)
+  baseURL: import.meta.env.VITE_API_ENDPOINT,
   headers: {
     'Content-Type': 'application/json'
   }
 });
+
 
 // Tự động thêm token vào header
 api.interceptors.request.use(config => {
